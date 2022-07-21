@@ -14,6 +14,7 @@ from django.contrib.auth.models import User
 from drf_yasg.utils import swagger_auto_schema
 from django.shortcuts import get_list_or_404, get_object_or_404
 import sys
+from django.db.models import Q, F
 
 # Create your views here.
 class NewWordViewSet(viewsets.ModelViewSet):
@@ -28,7 +29,7 @@ class NewWordViewSet(viewsets.ModelViewSet):
         user = request.user
         user_ob = User.objects.get(username=user)
         newword.like_user_ids.add(user_ob)
-        print(user_ob.username)
+        NewWord.objects.filter(id=pk).update(likeCnt=F('likeCnt')+1)
         # return redirect("http://localhost:8000/main/list/")
        # return Response(status=status.HTTP_200_OK)
         return Response({"active":"Success"},status=status.HTTP_200_OK)

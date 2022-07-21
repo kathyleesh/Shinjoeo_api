@@ -10,6 +10,7 @@ class NewWord(models.Model):
     like_user_ids = models.ManyToManyField(User,related_name='likeword', blank=True)
     create_time = models.DateTimeField(auto_now_add=True) 
     create_user_id = models.ForeignKey(User,related_name = "newword", on_delete=models.CASCADE,db_column="create_user_id")
+    likeCnt = models.IntegerField(default=0)
    
     def __str__(self):
         return str(self.word)
