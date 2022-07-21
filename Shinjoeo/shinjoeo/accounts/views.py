@@ -71,7 +71,7 @@ def getUserInfo(request):
 @login_required
 def logoutView(request):
     logout(request)
-    url = str('https://accounts.kakao.com/logout?continue=https%3A%2F%2Fkauth.kakao.com%2Foauth%2Flogout%2Fcallback%3Fclient_id%3Dfad3300d7c33374e2bb2bab358bcbec3%26logout_redirect_uri%3Dhttp%3A%2F%2F127.0.0.1%3A8000%2Faccounts%2Flogin')
+    url = str('https://accounts.kakao.com/logout?continue=https%3A%2F%2Fkauth.kakao.com%2Foauth%2Flogout%2Fcallback%3Fclient_id%3Dfad3300d7c33374e2bb2bab358bcbec3%26logout_redirect_uri%3Dhttp%3A%2F%2Fec2-54-180-8-2.ap-northeast-2.compute.amazonaws.com%3A8000%2Faccounts%2Flogin')
     return redirect(url)
 '''
 logout은 frontend에서 아래 링크를 바로 연결시킬 예정
