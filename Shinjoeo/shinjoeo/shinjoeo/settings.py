@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', 'ec2-54-180-8-2.ap-northeast-2.compute.amazonaws.com']
 CORS_ORIGIN_WHITELIST = ('http://127.0.0.1:3000', 'http://localhost:3000')
 CORS_ALLOW_CREDENTIALS = True
 
@@ -112,7 +112,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'Shinjoeo',
         'USER': 'root',
-        'HOST': '127.0.0.1',
+        'HOST': 'ec2-54-180-8-2.ap-northeast-2.compute.amazonaws.com',
         'PORT': '3306',
         'PASSWORD' : os.environ.get("DB_PASSWORD"),
     }
