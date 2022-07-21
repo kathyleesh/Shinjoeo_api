@@ -75,6 +75,6 @@ def logoutView(request):
     return redirect(url)
 '''
 logout은 frontend에서 아래 링크를 바로 연결시킬 예정
-https://accounts.kakao.com/logout?continue=https://kauth.kakao.com/oauth/logout/callback?logout_redirect_url=http://127.0.0.1:8000/accounts/login&client_id=fad3300d7c33374e2bb2bab358bcbec3
+https://accounts.kakao.com/logout?continue=https://kauth.kakao.com/oauth/logout/callback?logout_redirect_url=http://ec2-54-180-8-2.ap-northeast-2.compute.amazonaws.com:8000/accounts/login&client_id=fad3300d7c33374e2bb2bab358bcbec3
 '''
 
