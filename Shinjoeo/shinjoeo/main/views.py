@@ -57,7 +57,7 @@ class NewWordListLikeCount(ListAPIView):
 
     @swagger_auto_schema(tags=["ID"], responses= {200 : '성공', 404 : '찾을 수 없음', 400 : '인풋값 에러', 500 : '서버 에러'})
     def get_queryset(self):
-        queryset = NewWord.objects.annotate(q_count=Count('like_user_ids')).order_by('-q_count')
+        queryset = NewWord.objects.annotate(q_count=Count('like_user_ids')).order_by('-q_count','-create_time')
         return queryset
 
 #검색
