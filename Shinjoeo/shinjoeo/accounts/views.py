@@ -13,10 +13,7 @@ from django.contrib.auth.decorators import login_required
 @api_view(['GET'])
 @permission_classes([AllowAny, ])
 def kakaoGetLogin(request):
-    CLIENT_ID = KAKAO_CONFIG['KAKAO_REST_API_KEY']
-    REDIRET_URL = KAKAO_CONFIG['KAKAO_REDIRECT_URI']
-    url = "https://kauth.kakao.com/oauth/authorize?response_type=code&client_id={0}&redirect_uri={1}".format(
-        CLIENT_ID, REDIRET_URL)
+    url = "http://shinjoeo.s3-website.ap-northeast-2.amazonaws.com/main"
     res = redirect(url)
     return res
 
@@ -75,7 +72,7 @@ def getUserInfo(request):
 @login_required
 def logoutView(request):
     logout(request)
-    url = str('https://accounts.kakao.com/logout?continue=https%3A%2F%2Fkauth.kakao.com%2Foauth%2Flogout%2Fcallback%3Fclient_id%3Dfad3300d7c33374e2bb2bab358bcbec3%26logout_redirect_uri%3Dhttp%3A%2F%2Fec2-54-180-8-2.ap-northeast-2.compute.amazonaws.com%3A8000%2Faccounts%2Flogin')
+    url = str('https://accounts.kakao.com/logout?continue=http%3A%2F%2Fshinjoeo.s3-website.ap-northeast-2.amazonaws.com%2Fmain%3Fclient_id%3Dfad3300d7c33374e2bb2bab358bcbec3%26logout_redirect_uri%3Dhttp%3A%2F%2Fec2-54-180-8-2.ap-northeast-2.compute.amazonaws.com%3A8000%2Faccounts%2Flogin')
     return redirect(url)
 '''
 logout은 frontend에서 아래 링크를 바로 연결시킬 예정
