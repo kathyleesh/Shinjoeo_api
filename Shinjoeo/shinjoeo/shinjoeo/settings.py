@@ -163,7 +163,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 KAKAO_CONFIG = {
     "KAKAO_REST_API_KEY": os.environ.get("RESTAPI_KEY"),
-    "KAKAO_REDIRECT_URI": "http://shinjoeo.s3-website.ap-northeast-2.amazonaws.com/callback/",
+    "KAKAO_REDIRECT_URI": "http://ec2-54-180-8-2.ap-northeast-2.compute.amazonaws.com:8000/accounts/login/callback",
     "KAKAO_LOGOUT_REDIRECT_URI": "http://ec2-54-180-8-2.ap-northeast-2.compute.amazonaws.com:8000/accounts/login",
     "KAKAO_CLIENT_SECRET_KEY": os.environ.get("CLIENT_SECRET"), 
 }
