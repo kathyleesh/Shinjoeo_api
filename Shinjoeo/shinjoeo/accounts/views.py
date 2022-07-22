@@ -39,6 +39,7 @@ def getUserInfo(request):
     token_json = response.json()
 
     user_url = "https://kapi.kakao.com/v2/user/me"
+    access_token =  token_json['access_token']
     auth = "Bearer " + token_json['access_token']
 
     HEADER = {
@@ -52,7 +53,8 @@ def getUserInfo(request):
 
     my_res = {
         'user_id' : user_id,
-        'user_name' : nickname
+        'user_name' : nickname,
+        'access_token': access_token,
     }
 
     # print("=========="+str(json_data["id"]))
