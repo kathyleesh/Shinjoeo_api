@@ -1,5 +1,5 @@
 from django.urls import path,include
-from .views import NewWordViewSet,NewWordListCreateTime,NewWordListLikeCount
+from .views import NewWordViewSet,NewWordListCreateTime,NewWordListLikeCount,WordLikeViewSet
 from rest_framework.routers import DefaultRouter
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
@@ -34,6 +34,11 @@ newword_list = NewWordViewSet.as_view({
 newword_one = NewWordViewSet.as_view({
     # 'get': 'retrieve',
     'delete': 'destroy',
+    # 'post': 'update',
+})
+
+#신조어 좋아요 with username
+newword_like = WordLikeViewSet.as_view({
     'post': 'update',
 })
 
@@ -46,4 +51,5 @@ urlpatterns =[
     path('listbylike/', NewWordListLikeCount.as_view()),
     path('newword/', newword_list,name='newword'),
     path('newword/<int:pk>/', newword_one),
+    path('newword/<int:pk>/<int:username>', newword_like),
 ]

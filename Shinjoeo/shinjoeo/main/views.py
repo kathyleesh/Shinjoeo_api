@@ -22,12 +22,17 @@ class NewWordViewSet(viewsets.ModelViewSet):
     queryset = NewWord.objects.all()
     serializer_class = NewWordSerializer
 
-    def update(self, request, pk):
+
+class WordLikeViewSet(viewsets.ModelViewSet):
+    queryset = NewWord.objects.all()
+    serializer_class = NewWordSerializer
+
+    def update(self, request, pk,username):
         queryset = NewWord.objects.all()
         newword_id = pk
         newword = get_object_or_404(queryset, id=pk)
-        user = request.user
-        user_ob = User.objects.get(username=user)
+        # user = request.user
+        user_ob = User.objects.get(username=username)
         newword.like_user_ids.add(user_ob)
         NewWord.objects.filter(id=pk).update(likeCnt=F('likeCnt')+1)
         # return redirect("http://localhost:8000/main/list/")
