@@ -18,7 +18,7 @@ from django.db.models import Q, F
 
 # Create your views here.
 class NewWordViewSet(viewsets.ModelViewSet):
-    permission_classes = [IsAuthenticatedOrReadOnly]
+    #permission_classes = [IsAuthenticatedOrReadOnly]
     queryset = NewWord.objects.all()
     serializer_class = NewWordSerializer
 

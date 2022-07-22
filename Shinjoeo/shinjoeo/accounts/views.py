@@ -51,12 +51,6 @@ def getUserInfo(request):
     user_id = json_data["id"]
     nickname = json_data["properties"]["nickname"]
 
-    my_res = {
-        'user_id' : user_id,
-        'user_name' : nickname,
-        'access_token': access_token,
-    }
-
     # print("=========="+str(json_data["id"]))
     if User.objects.filter(username = user_id).exists():
         user = User.objects.get(username = user_id)
@@ -66,6 +60,14 @@ def getUserInfo(request):
             first_name = nickname,
         )
         user.set_unusable_password()
+
+    my_res = {
+        'id' : user.id,
+        'user_id' : user_id,
+        'user_name' : nickname,
+        'access_token': access_token,
+    }
+
     print(response.json())
     login(request,user=user)
     return Response(my_res)
